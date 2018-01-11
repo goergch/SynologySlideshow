@@ -1,0 +1,19 @@
+ngx-siema{
+  width: 100vw;
+  height: 100vh;
+  background-color: darkgrey;
+}
+
+ngx-siema-slide{
+  background-color: darkgrey;
+  height: 100vh
+}
+img{
+
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}

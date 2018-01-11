@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import { NgxSiemaModule } from 'ngx-siema';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
@@ -10,9 +14,13 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    HttpModule,
+    HttpClientModule,
+    BrowserModule,
+    NgxSiemaModule.forRoot(),
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
