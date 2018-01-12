@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.updatePhotoList();
 
-    const timer = TimerObservable.create(5000, 5000);
+    const timer = TimerObservable.create(20000, 20000);
     const timer2 = TimerObservable.create(60000, 60000);
     timer.subscribe(t => this.next());
     timer2.subscribe(t => {
