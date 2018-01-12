@@ -176,7 +176,7 @@ self.listPhotos = function (sid, album_id, callback) {
 };
 
 
-self.getPhoto = function (sid, photo_id, callback, req) {
+self.getPhoto = function (sid, photo_id, callback, res) {
   if (typeof(callback) !== 'function') {
 
     callback = function () {
@@ -201,6 +201,7 @@ self.getPhoto = function (sid, photo_id, callback, req) {
   };
   options.json = false;
 
+  res.setHeader('Cache-Control', 'public, max-age=' + 60*60*24*7);
 
   // request.POST(options).
   request(options, function (e, r, imageBuffer) {
@@ -208,7 +209,7 @@ self.getPhoto = function (sid, photo_id, callback, req) {
     console.log(imageBuffer);
     // callback(err, imageBuffer);
 
-  }).pipe(req);
+  }).pipe(res);
 
 };
 
