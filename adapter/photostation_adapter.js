@@ -206,7 +206,7 @@ self.getPhoto = function (sid, photo_id, callback, res) {
   // request.POST(options).
   request(options, function (e, r, imageBuffer) {
     var err = logger.logRequestAndResponse(e, options, r, imageBuffer);
-    console.log(imageBuffer);
+    // console.log(imageBuffer);
     // callback(err, imageBuffer);
 
   }).pipe(res);
