@@ -20,13 +20,6 @@ router.get('/:photo_id', validate({
         return;
       }
 
-      // if (!data) {
-      //   res.sendStatus(404);
-      //   return;
-      // }
-
-      // res.set('Content-Type', data.contentType);
-      // res.pipe(data);
     },res)
   });
 

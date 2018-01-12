@@ -137,9 +137,9 @@ logger.logRequestAndResponse = function (err, options, res, data) {
     loggerOutput.statusMessage = res.statusMessage;
   }
 
-  if (data) {
-    loggerOutput.data = data;
-  }
+  // if (data) {
+  //   loggerOutput.data = data;
+  // }
 
   if (err) {
     loggerOutput.err = err;
