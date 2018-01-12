@@ -6,8 +6,8 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class PhotoService {
-  private albumUrl = 'api/albums';
-  private photoUrl = 'api/photos';
+  private albumUrl = '/api/albums';
+  private photoUrl = '/api/photos';
   constructor(private http: HttpClient) {}
 
   getPhotoList(albumId: string): Observable<any> {
