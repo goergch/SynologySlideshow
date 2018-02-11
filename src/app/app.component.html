@@ -1,7 +1,7 @@
 
   <ngx-siema (click)="siemaclick()" *ngIf="photoList && photoList.length" [options]="options">
     <ngx-siema-slide *ngFor="let photo of photoList" fxLayout="column" fxFlexAlign="center center">
-      <img src="api/photos/{{photo.id}}" >
+      <img src="api/thumbs/{{photo.id}}" >
     </ngx-siema-slide>
   </ngx-siema>
 

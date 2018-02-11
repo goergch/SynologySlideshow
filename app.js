@@ -9,6 +9,7 @@ require('https').globalAgent.options.ca = rootCas;
 
 const photos = require('./routes/photos');
 const albums = require('./routes/albums');
+const thumbs = require('./routes/thumbs');
 var app = express();
 
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api/photos', photos);
 app.use('/api/albums', albums);
+app.use('/api/thumbs', thumbs);
 
 app.all('/api/*', function (req, res, next) {
   res.sendStatus(404);

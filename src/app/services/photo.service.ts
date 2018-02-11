@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 export class PhotoService {
   private albumUrl = '/api/albums';
   private photoUrl = '/api/photos';
+  private thumbUrl = '/api/thumbs';
   constructor(private http: HttpClient) {}
 
   getPhotoList(albumId: string): Observable<any> {
@@ -17,6 +18,10 @@ export class PhotoService {
 
   getPhoto(photoId: string): Observable<any> {
     const url = `${this.photoUrl}/${photoId}`;
+    return this.http.get<any>(url);
+  }
+  getThumb(photoId: string): Observable<any> {
+    const url = `${this.thumbUrl}/${photoId}`;
     return this.http.get<any>(url);
   }
 

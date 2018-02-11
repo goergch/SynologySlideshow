@@ -214,4 +214,43 @@ self.getPhoto = function (sid, photo_id, callback, res) {
 };
 
 
+self.getThumb = function (sid, photo_id, callback, res) {
+  if (typeof(callback) !== 'function') {
+
+    callback = function () {
+      logger.info('Callback not registered');
+    }
+  }
+
+  const options = buildOptionsForRequest(
+    'POST',
+    CONFIG.HOST_SETTINGS.PHOTO_STATION.PROTOCOL,
+    CONFIG.HOST_SETTINGS.PHOTO_STATION.HOST,
+    CONFIG.HOST_SETTINGS.PHOTO_STATION.PORT,
+    '/photo/webapi/thumb.php?SynoToken=' + sid,
+    {}
+  );
+
+  options.formData = {
+    api: 'SYNO.PhotoStation.Thumb',
+    method: 'get',
+    version: '1',
+    id: photo_id,
+    size: 'large'
+  };
+  options.json = false;
+
+  res.setHeader('Cache-Control', 'public, max-age=' + 60*60*24*7);
+
+  // request.POST(options).
+  request(options, function (e, r, imageBuffer) {
+    var err = logger.logRequestAndResponse(e, options, r, imageBuffer);
+    // console.log(imageBuffer);
+    // callback(err, imageBuffer);
+
+  }).pipe(res);
+
+};
+
+
 module.exports = self;
